@@ -1,0 +1,33 @@
+[workspace]
+members = [
+    "crates/approx-designer",
+    "crates/approximate"
+]
+resolver = "2"
+
+[workspace.package]
+authors = ["Guillaume Anthouard <guillaume.anthouard@hotmail.fr>"]
+homepage = "https://github.com/Gui-Yom/approx-designer"
+repository = "https://github.com/Gui-Yom/approx-designer"
+edition = "2021"
+
+[workspace.dependencies]
+approximate = { path = "crates/approximate" }
+
+criterion = "0.5"
+eframe = "0.28"
+egui_plot = "0.28"
+egui_tiles = "0.9"
+rustversion = "1"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.htm
+
+[profile.dev]
+opt-level = 1
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 4
+debug = "full"
+split-debuginfo = "packed"
